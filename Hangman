@@ -1,0 +1,417 @@
+#include <iostream>
+#include<ctime>
+#include<string>
+#include<iomanip>
+#include <cstdlib>
+using namespace std;
+void words(int category, string& word) {
+	if (category == 1) {
+		string arr[5] = { "cat","dog" ,"elephant","lion","tiger" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+
+
+	}
+	else if (category == 2) {
+		string arr[5] = { "rice","chocolate" ,"hotdog","pasta","egg" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+	}
+	else if (category == 3) {
+		string arr[5] = { "table","chair" ,"sofa","television","bag" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+	}
+	else if (category == 4) {
+		string arr[5] = { "football","squash" ,"tennis","swimming","handball" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+	}
+	else if (category == 5) {
+		string arr[5] = { "egypt","germany" ,"france","australia","morocco" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+	}
+	else if (category == 6) {
+		string arr[5] = { "shirt","pants" ,"jeans","skirt","dress" };
+		srand(time(0));
+		int x = rand() % 5;
+		word = arr[x];
+	}
+}
+void convert(string s, string& dash)
+{
+	const int size = s.length();
+	for (int i = 1; i <= size; i++)
+	{
+		dash += "-";
+	}
+	cout << dash << endl;
+}
+void head(char array[][10]) {
+
+	for (int row = 0; row <= 3; row++) {
+		for (int col = 2; col <= 7; col++) {
+			if (row == 0 && col == 4) {
+				array[row][col] = '*';
+			}
+			else if (row == 0 && col == 5) {
+				array[row][col] = '*';
+			}
+			else if (row == 1 && col == 2) {
+				array[row][col] = '*';
+			}
+			else if (row == 1 && col == 7) {
+				array[row][col] = '*';
+			}
+			else if (row == 2 && col == 2) {
+				array[row][col] = '*';
+			}
+			else if (row == 2 && col == 7) {
+				array[row][col] = '*';
+			}
+			else if (row == 3 && col == 4) {
+				array[row][col] = '*';
+			}
+			else if (row == 3 && col == 5) {
+				array[row][col] = '*';
+			}
+
+		}
+
+	}
+
+}
+void body(char array[][10]) {
+
+	for (int row = 4; row <= 6; row++) {
+		for (int col = 4; col <= 5; col++) {
+			if (row == 4 && col == 4) {
+				array[row][col] = '*';
+			}
+			else if (row == 5 && col == 4) {
+				array[row][col] = '*';
+			}
+			else if (row == 6 && col == 4) {
+				array[row][col] = '*';
+			}
+			else if (row == 4 && col == 5) {
+				array[row][col] = '*';
+			}
+			else if (row == 5 && col == 5) {
+				array[row][col] = '*';
+			}
+			else if (row == 6 && col == 5) {
+				array[row][col] = '*';
+			}
+
+		}
+
+	}
+}
+void arm1(char array[][10]) {
+
+	for (int row = 4; row <= 6; row++) {
+		for (int col = 1; col <= 3; col++) {
+			if (row == 4 && col == 3) {
+				array[row][col] = '*';
+			}
+			else if (row == 5 && col == 2) {
+				array[row][col] = '*';
+			}
+			else if (row == 6 && col == 1) {
+				array[row][col] = '*';
+			}
+
+		}
+
+	}
+}
+void arm2(char array[][10]) {
+	for (int row = 4; row <= 6; row++) {
+		for (int col = 6; col <= 8; col++) {
+			if (row == 4 && col == 6) {
+				array[row][col] = '*';
+			}
+			else if (row == 5 && col == 7) {
+				array[row][col] = '*';
+			}
+			else if (row == 6 && col == 8) {
+				array[row][col] = '*';
+			}
+		}
+	}
+}
+void leg1(char array[][10]) {
+	for (int row = 7; row <= 9; row++) {
+		for (int col = 6; col <= 8; col++) {
+			if (row == 7 && col == 6) {
+				array[row][col] = '*';
+			}
+			else if (row == 8 && col == 7) {
+				array[row][col] = '*';
+			}
+			else if (row == 9 && col == 8) {
+				array[row][col] = '*';
+			}
+		}
+	}
+}
+void leg2(char array[][10]) {
+	for (int row = 7; row <= 9; row++) {
+		for (int col = 1; col <= 3; col++) {
+			if (row == 7 && col == 3) {
+				array[row][col] = '*';
+			}
+			else if (row == 8 && col == 2) {
+				array[row][col] = '*';
+			}
+			else if (row == 9 && col == 1) {
+				array[row][col] = '*';
+			}
+		}
+	}
+}
+void eye(char array[][10]) {
+
+	array[1][4] = 'o';
+	array[1][5] = 'o';
+
+}
+void mouth(char array[][10]) {
+
+	array[2][4] = '~';
+	array[2][5] = '~';
+
+}
+bool draw(int wrong, string word) {
+	bool x = true;
+	char array[10][10];
+	for (int row = 0; row < 10; row++) {
+		for (int col = 0; col < 10; col++) {
+			array[row][col] = '    ';
+		}
+	}
+	if (wrong == 1) {
+		head(array);
+	}
+	else if (wrong == 2) {
+		head(array);
+		body(array);
+	}
+	else if (wrong == 3) {
+		head(array);
+		body(array);
+		arm1(array);
+	}
+	else if (wrong == 4) {
+		head(array);
+		body(array);
+		arm1(array);
+		arm2(array);
+	}
+	else if (wrong == 5) {
+		head(array);
+		body(array);
+		arm1(array);
+		arm2(array);
+		leg1(array);
+	}
+	else if (wrong == 6) {
+		head(array);
+		body(array);
+		arm1(array);
+		arm2(array);
+		leg1(array);
+		leg2(array);
+	}
+	else if (wrong == 7) {
+		head(array);
+		body(array);
+		arm1(array);
+		arm2(array);
+		leg1(array);
+		leg2(array);
+		eye(array);
+	}
+	else if (wrong == 8) {
+		head(array);
+		body(array);
+		arm1(array);
+		arm2(array);
+		leg1(array);
+		leg2(array);
+		eye(array);
+		mouth(array);
+		cout << "GAME OVER!!" << endl;
+		cout << "The Word is " << word << endl;
+		x = false;
+	}
+	if (wrong > 0) {
+		for (int i = 0; i < 10; i++) // row iterator
+		{
+			cout << setw(10);
+			for (int j = 0; j < 10; j++) // col iterator
+			{
+				cout << array[i][j];
+			}
+			cout << endl;
+		}
+	}
+	return x;
+}
+int main()
+{
+	// AWEL HAGA TEZHAR LEL USER
+	cout << "Welcome to Hangman !!!" << endl;
+	char player;
+	string word;
+	char guess;
+	string player1, player2;
+	cout << "Press 1: One player " << "\n" << "Press 2: Two players " << endl;
+	cin >> player;
+	if (player == '1')
+	{
+		cout << "Rules of the game:" << "\n" << "Choose the category you want : " << "\n" << "And then choose the letters you want and if the letter chosen is wrong the man will start to be drawn. " << endl;
+		cout << "1)animals" << "\n" << "2)food" << "\n" << "3)objects" << "\n" << "4)sports" << "\n" << "5)countries" << "\n" << "6)clothes" << endl;
+
+	}
+	else if (player == '2')
+	{
+		cout << "player 1 enter your name" << endl;
+		cin >> player1;
+		cout << "player 2 enter your name" << endl;
+		cin >> player2;
+		cout << "Rules of the game:" << "\n" << player2 << " You should choose the category " << "\n" << player1 << " choose the word to play " << "\n" << player2 << " Guess the word chosen by  " << player1 << endl;
+		cout << "1)animal" << "\n" << "2)food" << "\n" << "3)objects" << "\n" << "4)sports" << "\n" << "5)countries" << "\n" << "6)clothes" << endl;
+
+
+	}
+
+	//CHOOSE CATEGORIES
+
+	int  category;
+	cout << "Enter a number of category you want to start :";
+	cin >> category;
+	cout << endl;
+
+	string  wrong, dash;
+
+	if (player == '1') {
+		const int s = 26;
+		char letters[s];
+		int flag = 0, countright = 0, counter = 0;
+		words(category, word);
+		int size = word.length();
+		system("CLS");
+		convert(word, dash);
+		for (int i = 0; i < s; i++) {
+			letters[i] = 'a' + i;
+			cout << letters[i] << " ";
+		}
+		cout << endl;
+		cout << "Enter your guess" << endl;
+		for (int i = 0; i < 15; i++)
+		{
+			cout << "guess: ";
+			flag = 0;
+			cin >> guess;
+			system("cls");
+			cout << endl;
+			for (int j = 0; j < size; j++)
+			{
+				if (guess == word[j])
+				{
+					dash[j] = guess;
+					countright++;
+					flag = 1;
+				}
+
+			}
+			cout << dash << endl;
+			if (flag == 0)
+			{
+				counter++;
+			}
+			for (int i = 0; i < s; i++) {
+				if (letters[i] == guess) {
+					letters[i] = '*';
+				}
+			}
+			for (int i = 0; i < s; i++) {
+				cout << letters[i] << " ";
+			}
+			cout << endl;
+			if (draw(counter, word) == false) {
+				break;
+			}
+			if (countright == size)
+			{
+				cout << "WINNER!!" << endl;
+				break;
+			}
+		}
+
+	}
+	else if (player == '2') {
+		const int s = 26;
+		char letters[s];
+		int flag = 0, countright = 0, counter = 0;
+		cout << "Enter a word" << endl;
+		cin >> word;
+		int size = word.length();
+		system("CLS");
+		convert(word, dash);
+		for (int i = 0; i < s; i++) {
+			letters[i] = 'a' + i;
+			cout << letters[i] << " ";
+		}
+		cout << endl;
+		cout << "Enter your guess" << endl;
+		for (int i = 0; i < 15; i++)
+		{
+			cout << "guess: ";
+			flag = 0;
+			cin >> guess;
+			system("cls");
+			cout << endl;
+			for (int j = 0; j < size; j++)
+			{
+				if (guess == word[j])
+				{
+					dash[j] = guess;
+					countright++;
+					flag = 1;
+				}
+
+			}
+			cout << dash << endl;
+			if (flag == 0)
+			{
+				counter++;
+			}
+			for (int i = 0; i < s; i++) {
+				if (letters[i] == guess) {
+					letters[i] = '*';
+				}
+			}
+			for (int i = 0; i < s; i++) {
+				cout << letters[i] << " ";
+			}
+			cout << endl;
+			if (draw(counter, word) == false) {
+				break;
+			}
+			if (countright == size)
+			{
+				cout << "WINNER!!" << endl;
+				break;
+			}
+		}
+	}
+}
